@@ -1,4 +1,5 @@
-/**Universidad de las Américas
+/**
+ * Universidad de las Américas
  * Facultad de Ingeniería y Ciencias Aplicadas
  * Carrera: Ingeniería de Software
  * Programación Orientada a Objetos - Programación II
@@ -33,7 +34,7 @@ public class Main {
 
         /** Crear dos objetos de la clase Empleado */
         Empleado empleado1 = new Empleado("Jhon", "Lambert");
-        Empleado empleado2 = new Empleado("Francis","Jimenez");
+        Empleado empleado2 = new Empleado("Francis", "Jimenez");
 
         /** Pedir salario para registrar en cada objeto de la clase empleado*/
         /**Al inicio se usa la funcion Scan, pero por diseño escogimos usar el JOption pane*/
@@ -45,38 +46,59 @@ public class Main {
         empleado2.setSalarioMensual(Double.parseDouble(JOptionPane.showInputDialog("Salario del segundo empleado")));
 
 
-
-
-
         /** Mostrar salarios mensuales y anuales*/
         /** Salario mensual */
-        System.out.println("Salarios Mensuales");
-        System.out.printf("Salario mensual de %s %s: $%.2f%n",
-                empleado1.getPrimerNombre(), empleado1.getPrimerApellido(), empleado1.getSalarioMensual());
-        System.out.printf("Salario mensual de %s %s: $%.2f%n",
-                empleado2.getPrimerNombre(), empleado2.getPrimerApellido(), empleado2.getSalarioMensual());
+        //System.out.println("Salarios Mensuales");
+        //System.out.printf("Salario mensual de %s %s: $%.2f%n",
+        // empleado1.getPrimerNombre(), empleado1.getPrimerApellido(), empleado1.getSalarioMensual());
+        // System.out.printf("Salario mensual de %s %s: $%.2f%n",
+        // empleado2.getPrimerNombre(), empleado2.getPrimerApellido(), empleado2.getSalarioMensual());
         /** Salario anual */
-        System.out.println("Salarios anuales");
-        System.out.printf("Salario anual de %s %s: $%.2f%n",
-                empleado1.getPrimerNombre(), empleado1.getPrimerApellido(), empleado1.getSalarioAnual());
+        //  System.out.println("Salarios anuales");
+        // System.out.printf("Salario anual de %s %s: $%.2f%n",
+        //empleado1.getPrimerNombre(), empleado1.getPrimerApellido(), empleado1.getSalarioAnual());
 
-        System.out.printf("Salario anual de %s %s: $%.2f%n",
-                empleado2.getPrimerNombre(), empleado2.getPrimerApellido(), empleado2.getSalarioAnual());
+        //System.out.printf("Salario anual de %s %s: $%.2f%n",
+        //     empleado2.getPrimerNombre(), empleado2.getPrimerApellido(), empleado2.getSalarioAnual());
 
-        System.out.println("\n");
+        // System.out.println("\n");
 
         /** Da un aumento del 10% a cada empleado */
-        System.out.println("Salario con un aumento del 10%:");
-        empleado1.darAumento(10); /** Este 10 puede cambiar ya que no se le hizo fijo como constante */
-        empleado2.darAumento(10);
-        System.out.println("El aumento se ha aplicado de manera exitosa.");
-        System.out.println("\n");
+        //  System.out.println("Salario con un aumento del 10%:");
+        //  empleado1.darAumento(10); /** Este 10 puede cambiar ya que no se le hizo fijo como constante */
+        //  empleado2.darAumento(10);
+        // System.out.println("El aumento se ha aplicado de manera exitosa.");
+        //  System.out.println("\n");
 
         /** Mostrar los salarios anuales después del aumento*/
-        System.out.println("--- Salarios Anuales Después del Aumento ---");
-        System.out.printf("Nuevo salario anual de %s %s: $%.2f%n",
-                empleado1.getPrimerNombre(), empleado1.getPrimerApellido(), empleado1.getSalarioAnual());
-        System.out.printf("Nuevo salario anual de %s %s: $%.2f%n",
-                empleado2.getPrimerNombre(), empleado2.getPrimerApellido(), empleado2.getSalarioAnual());
+        //System.out.println("--- Salarios Anuales Después del Aumento ---");
+        //System.out.printf("Nuevo salario anual de %s %s: $%.2f%n",
+        //       empleado1.getPrimerNombre(), empleado1.getPrimerApellido(), empleado1.getSalarioAnual());
+        //System.out.printf("Nuevo salario anual de %s %s: $%.2f%n",
+        //        empleado2.getPrimerNombre(), empleado2.getPrimerApellido(), empleado2.getSalarioAnual());
+
+        /** Por cumplir con el requisito de usar ventanas emergentes cambiamos e println y printf por JOption pane*/
+        /** Mostrar salarios mensuales y anuales*/
+        JOptionPane.showMessageDialog(null,
+                "Salarios Mensuales\n" +
+                        "Salario mensual de " + empleado1.getPrimerNombre() + " " + empleado1.getPrimerApellido() + ": " + empleado1.getSalarioMensual() + "\n" +
+                        "Salario mensual de " + empleado2.getPrimerNombre() + " " + empleado2.getPrimerApellido() + ": " + empleado2.getSalarioMensual() + "\n\n" +
+                        "Salarios anuales\n" +
+                        "Salario anual de " + empleado1.getPrimerNombre() + " " + empleado1.getPrimerApellido() + ": " + empleado1.getSalarioAnual() + "\n" +
+                        "Salario anual de " + empleado2.getPrimerNombre() + " " + empleado2.getPrimerApellido() + ": " + empleado2.getSalarioAnual());
+
+        /** Da un aumento del 10% a cada empleado */
+        empleado1.darAumento(10); /** Este 10 puede cambiar ya que no se le hizo fijo como constante */
+        empleado2.darAumento(10);
+        /** Mostrar los salarios anuales después del aumento*/
+        JOptionPane.showMessageDialog(null,
+                "Se aplico a cada salario un aumento del 10%:\n\n" + String.format(
+                        "Salarios Anuales Después del Aumento\n" +
+                                "Nuevo salario anual de %s %s: %.2f\n" +
+                                "Nuevo salario anual de %s %s: %.2f",
+                        empleado1.getPrimerNombre(), empleado1.getPrimerApellido(), empleado1.getSalarioAnual(),
+                        empleado2.getPrimerNombre(), empleado2.getPrimerApellido(), empleado2.getSalarioAnual())
+        );
+
     }
 }
