@@ -7,7 +7,7 @@ public class Main {
         int dia;
         int mes;
         int anio;
-/** Por cumplir con el requisito de usar ventanas emergentes cambiamos e println y printf por JOption pane*/
+/** Por cumplir con el requisito de usar ventanas emergentes cambiamos println y printf por JOption pane*/
 /**
  Scanner sc= new Scanner(System.in);
 

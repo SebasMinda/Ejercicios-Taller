@@ -77,7 +77,7 @@ public class Main {
         //System.out.printf("Nuevo salario anual de %s %s: $%.2f%n",
         //        empleado2.getPrimerNombre(), empleado2.getPrimerApellido(), empleado2.getSalarioAnual());
 
-        /** Por cumplir con el requisito de usar ventanas emergentes cambiamos e println y printf por JOption pane*/
+        /** Por cumplir con el requisito de usar ventanas emergentes cambiamos println y printf por JOption pane*/
         /** Mostrar salarios mensuales y anuales*/
         JOptionPane.showMessageDialog(null,
                 "Salarios Mensuales\n" +
