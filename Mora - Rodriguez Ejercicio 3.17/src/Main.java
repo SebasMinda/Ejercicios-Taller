@@ -1,10 +1,12 @@
+import javax.swing.*;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        PerfilMedico perfilMedico1 = new PerfilMedico("Paul","Walker","Masculino",12,9,1973,188,78);
+        PerfilMedico perfilMedico1 = new PerfilMedico("Paul", "Walker", "Masculino", 12, 9, 1973, 188, 78);
         Scanner sc = new Scanner(System.in);
-
+/** Por cumplir con el requisito de usar ventanas emergentes cambiamos println y printf por JOption pane*/
+/*
         System.out.println("Primer Nombre : ");
         perfilMedico1.setPrimerNombre(sc.nextLine());
         System.out.println("Apellido : ");
@@ -22,21 +24,75 @@ public class Main {
         System.out.println("Peso : ");
         perfilMedico1.setPeso(Integer.parseInt(sc.nextLine()));
 
-        // Calcular y mostrar la edad*/
+        // Calcular y mostrar la edad
         int edad = perfilMedico1.CalcularEdad();
         System.out.println("Edad: " + edad + " años");
 
-        // Calcular y mostrar el BMI*/
+        // Calcular y mostrar el BMI
         double bmi = perfilMedico1.calcularBMI();
         System.out.println("Índice de Masa Corporal (BMI): " + String.format("%.2f", bmi));
         System.out.println("Clasificación del BMI: " + perfilMedico1.clasificarBMI());
 
-        // Calcular y mostrar la Frecuencia Cardiaca Máxima*/
+        // Calcular y mostrar la Frecuencia Cardiaca Máxima
         int fcm = perfilMedico1.calcularFCM();
         System.out.println("Frecuencia Cardiaca Máxima: " + fcm + " bpm");
 
-        // Calcular y mostrar el rango de Frecuencia Cardiaca Esperada*/
+        // Calcular y mostrar el rango de Frecuencia Cardiaca Esperada
         String rangoFC = perfilMedico1.calcularRangoFC();
         System.out.println("Rango esperado de Frecuencia Cardiaca: " + rangoFC);
+        */
+
+        /** Reescritura del código usando JOptionPane para entrada y salida de datos */
+
+        /** Entrada de datos con JOptionPane */
+
+        String primerNombre = JOptionPane.showInputDialog(null, "Primer Nombre:");
+        perfilMedico1.setPrimerNombre(primerNombre);
+
+        String apellido = JOptionPane.showInputDialog(null, "Apellido:");
+        perfilMedico1.setApellido(apellido);
+
+        String sexo = JOptionPane.showInputDialog(null, "Sexo:");
+        perfilMedico1.setSexo(sexo);
+
+        String diaStr = JOptionPane.showInputDialog(null, "Día de Nacimiento:");
+        perfilMedico1.setDiaNacimiento(Integer.parseInt(diaStr));
+
+        String mesStr = JOptionPane.showInputDialog(null, "Mes de Nacimiento:");
+        perfilMedico1.setMesNacimiento(Integer.parseInt(mesStr));
+
+        String anioStr = JOptionPane.showInputDialog(null, "Año de Nacimiento:");
+        perfilMedico1.setAñoNacimiento(Integer.parseInt(anioStr));
+
+        String alturaStr = JOptionPane.showInputDialog(null, "Altura (en cm):");
+        perfilMedico1.setAltura(Double.parseDouble(alturaStr));
+
+        String pesoStr = JOptionPane.showInputDialog(null, "Peso (en kg):");
+        perfilMedico1.setPeso(Double.parseDouble(pesoStr));
+
+        /** Llamar a los métodos para calcular los indicadores de salud */
+
+        int edad = perfilMedico1.CalcularEdad();
+
+        double bmi = perfilMedico1.calcularBMI();
+
+        int fcm = perfilMedico1.calcularFCM();
+
+        String clasificacionBmi = perfilMedico1.clasificarBMI();
+
+        String rangoFC = perfilMedico1.calcularRangoFC();
+
+        /** Salida de datos en una sola ventana emergente usando JOptionPane */
+
+        JOptionPane.showMessageDialog(null,
+                "Perfil Médico Completo\n\n" +
+                        "Nombre: " + perfilMedico1.getPrimerNombre() + " "+ perfilMedico1.getApellido() + "\n" +
+                        "Edad: " + edad + " años\n" +
+                        "Sexo: "+ sexo + "\n\n" +
+                        "--- Indicadores de Salud ---\n" +
+                        "Índice de Masa Corporal (IMC): " + String.format("%.2f", bmi) + "\n" +
+                        "Clasificación de IMC: " + clasificacionBmi + "\n" +
+                        "Frecuencia Cardiaca Máxima: " + fcm + " bpm\n" +
+                        "Rango de Frecuencia Cardiaca: " + rangoFC);
     }
 }
